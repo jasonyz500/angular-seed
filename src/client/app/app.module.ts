@@ -11,8 +11,8 @@ import { WriteModule } from './write/write.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, 
-  AboutModule, HomeModule, WriteModule, 
+  imports: [BrowserModule, HttpModule, AppRoutingModule,
+  AboutModule, HomeModule, WriteModule,
   SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [{

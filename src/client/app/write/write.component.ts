@@ -21,7 +21,7 @@ export class WriteComponent implements OnInit {
   }
 
   populate() {
-    this.weeksService.get('2017-06-12')
+    this.weeksService.get('2017-06-19')
       .subscribe(
         week => this.week = week
       );

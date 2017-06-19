@@ -49,11 +49,11 @@ export class ProjectConfig extends SeedConfig {
 
     // Add packages (e.g. ng2-translate)
     let additionalPackages: ExtendPackages[] = [
-    // required for dev build 
+    // required for dev build
     {
       name:'ngx-bootstrap',
       path:'node_modules/ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js'
-    },    
+    },
 
     // required for prod build
     {
@@ -61,7 +61,7 @@ export class ProjectConfig extends SeedConfig {
       path:'node_modules/ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js'
     },
 
-    // mandatory dependency for ngx-bootstrap datepicker 
+    // mandatory dependency for ngx-bootstrap datepicker
     {
       name:'moment',
       path:'node_modules/moment',
@@ -69,8 +69,17 @@ export class ProjectConfig extends SeedConfig {
         main: 'moment.js',
         defaultExtension: 'js'
       }
+    },
+
+    {
+      name:'lodash',
+      path:'node_modules/lodash',
+      packageMeta:{
+        main:'lodash.min.js',
+        defaultExtension:'js'
+      }
     }
-    ];    
+    ];
     this.addPackagesBundles(additionalPackages);
 
     /* Add proxy middleware */
