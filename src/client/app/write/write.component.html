@@ -1,8 +1,10 @@
-<h2>Week title here</h2>
-<h2>Some day of week selector here</h2>
 <div *ngIf="week">
+  <h2>{{getDisplayName(week.week_string)}}</h2>
   <div class="well">
-    <h2>Today</h2>
+    <h2>{{selectedDay.date}}</h2>
+    <div *ngFor="let response of week.daily_responses[selectedDay.dayOfWeek]">
+      <question-container [response]="response"></question-container>
+    </div>
   </div>
   <div class="well">
     <h2>This Week</h2>

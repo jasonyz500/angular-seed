@@ -1,10 +1,9 @@
 <form [formGroup]="responseForm" novalidate>
   <div class="form-group">
-    <label class="center-block">{{response.question}}
-      <textarea rows="7" class="form-control" formControlName="body" #spy></textarea>
-    </label>
+    <label class="question">{{response.question}}</label>
+    <textarea rows="7" class="form-control" formControlName="body" #spy></textarea>
   </div>
 </form>
-<p>Form value: {{ responseForm.value | json }}</p>
+<!-- <p>Form value: {{ responseForm.value | json }}</p>
 <p>Form status: {{ responseForm.status | json }}</p>
-<p>{{spy.className}}</p>
+<p>{{spy.className}}</p> -->
