@@ -2,6 +2,8 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { DatepickerModule } from 'ngx-bootstrap';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,10 +16,12 @@ import { WeeksService } from './weeks/weeks.service';
  */
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, 
+    BsDropdownModule.forRoot(), DatepickerModule.forRoot()],
   declarations: [ToolbarComponent, NavbarComponent],
   exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, ReactiveFormsModule, RouterModule]
+    CommonModule, FormsModule, ReactiveFormsModule, RouterModule,
+    BsDropdownModule, DatepickerModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

@@ -12,22 +12,24 @@ import * as moment from 'moment';
 })
 export class WriteComponent implements OnInit {
 
+  dt: Date = new Date();
   week: any;
   selectedDay: {
-    date: string,
+    displayName: string,
     dayOfWeek: number
   } = {
-    date: '',
-    dayOfWeek: -1
+    displayName: moment().format('dddd, MMMM Do'),
+    dayOfWeek: moment().day()
   };
 
   constructor(public weeksService: WeeksService) {}
 
   ngOnInit() {
-    let this_week = moment().startOf('isoWeek').format('YYYY-MM-DD');
-    this.selectedDay.date = moment().format('dddd, MMMM Do');
-    this.selectedDay.dayOfWeek = moment().day();
-    this.populate(this_week);
+    this.populate(moment());
+  }
+
+  changeDate(event: MouseEvent) {
+    this.populate(moment(event));
   }
 
   getDisplayName(week_string: string): string {
@@ -37,10 +39,13 @@ export class WriteComponent implements OnInit {
     return `${prefix}${moment(week_string).format('MMMM Do')} - ${suffix} ${moment(week_string).endOf('isoWeek').format('Do')}`;
   }
 
-  populate(week_string: string) {
-    this.weeksService.get(week_string)
-      .subscribe(
-        week => this.week = week
-      );
+  populate(date_moment: any) {
+    let this_week = date_moment.clone().startOf('isoWeek').format('YYYY-MM-DD');
+    this.weeksService.get(this_week)
+      .subscribe(week => {
+        this.week = week;
+        this.selectedDay.displayName = date_moment.format('dddd, MMMM Do');
+        this.selectedDay.dayOfWeek = date_moment.day();
+      });
   }
 }

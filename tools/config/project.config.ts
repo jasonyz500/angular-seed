@@ -63,20 +63,27 @@ export class ProjectConfig extends SeedConfig {
 
     // mandatory dependency for ngx-bootstrap datepicker
     {
-      name:'moment',
-      path:'node_modules/moment',
-      packageMeta:{
+      name: 'moment',
+      path: 'node_modules/moment',
+      packageMeta: {
         main: 'moment.js',
         defaultExtension: 'js'
       }
     },
-
     {
-      name:'lodash',
-      path:'node_modules/lodash',
-      packageMeta:{
-        main:'lodash.min.js',
-        defaultExtension:'js'
+      name: 'lodash',
+      path: 'node_modules/lodash',
+      packageMeta: {
+        main: 'lodash.min.js',
+        defaultExtension: 'js'
+      }
+    },
+    {
+      name:'jquery',
+      path:'node_modules/jquery/dist',
+      packageMeta: {
+        main: 'jquery.min.js',
+        defaultExtension: 'js'
       }
     }
     ];
