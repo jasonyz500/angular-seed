@@ -1,14 +1,18 @@
 <div *ngIf="week">
-  <h2>{{getDisplayName(week.week_string)}}</h2>
-  <div class="btn-group" dropdown>
-    <button dropdownToggle type="button" class="btn btn-success dropdown-toggle">
-      <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span>
-    </button>
-    <datepicker [(ngModel)]="dt" [showWeeks]="true" 
-      (selectionDone)="changeDate($event)"
-      *dropdownMenu class="dropdown-menu" role="menu">
-    </datepicker>
-  </div>
+  <h2>
+    <span (click)="handleArrow(-7)" class="glyphicon glyphicon-chevron-left"></span>
+    {{getDisplayName(week.week_string)}}
+    <span (click)="handleArrow(7)" class="glyphicon glyphicon-chevron-right"></span>
+    <div class="btn-group" dropdown>
+      <button dropdownToggle type="button" class="btn btn-success dropdown-toggle">
+        <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span>
+      </button>
+      <datepicker [(ngModel)]="dt" [showWeeks]="true" 
+        (selectionDone)="changeDate($event)"
+        *dropdownMenu class="dropdown-menu" role="menu">
+      </datepicker>
+    </div>
+  </h2>
   <div class="well">
     <h2>{{selectedDay.displayName}}</h2>
     <div *ngFor="let response of week.daily_responses[selectedDay.dayOfWeek]">

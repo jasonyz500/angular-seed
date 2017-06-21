@@ -28,15 +28,23 @@ export class WriteComponent implements OnInit {
     this.populate(moment());
   }
 
+  handleArrow(diff: number) {
+    let m = moment(this.dt).add(diff, 'days');
+    this.dt = m.toDate();
+    this.populate(m);
+  }
+
   changeDate(event: MouseEvent) {
     this.populate(moment(event));
   }
 
   getDisplayName(week_string: string): string {
     let endMonth = moment(week_string).endOf('isoWeek').month();
-    let suffix = endMonth == moment(week_string).month() ? '' : endMonth;
+    let suffix = endMonth == moment(week_string).month() ? '' : moment().month(endMonth).format('MMMM');
     let prefix = moment().startOf('isoWeek').format('YYYY-MM-DD') == week_string ? 'This Week: ' : '';
-    return `${prefix}${moment(week_string).format('MMMM Do')} - ${suffix} ${moment(week_string).endOf('isoWeek').format('Do')}`;
+    let weekNo = moment(week_string).startOf('isoWeek').week();
+    let yr = week_string.slice(0,4);
+    return `${prefix}${moment(week_string).format('MMMM Do')} - ${suffix} ${moment(week_string).endOf('isoWeek').format('Do')} (${yr} Week ${weekNo})`;
   }
 
   populate(date_moment: any) {

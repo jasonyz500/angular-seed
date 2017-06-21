@@ -8,11 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { WriteModule } from './write/write.module';
+import { VisualizeModule } from './visualize/visualize.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [BrowserModule, HttpModule, AppRoutingModule,
-  AboutModule, HomeModule, WriteModule,
+  AboutModule, HomeModule, WriteModule, VisualizeModule,
   SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [{
