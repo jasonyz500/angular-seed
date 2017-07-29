@@ -1,0 +1,21 @@
+<!-- <div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-success dropdown-toggle">
+    From: <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span>
+  </button>
+  <datepicker [(ngModel)]="dt" [showWeeks]="true" 
+    (selectionDone)="changeDate($event)"
+    *dropdownMenu class="dropdown-menu" role="menu">
+  </datepicker>
+</div>
+<div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-success dropdown-toggle">
+    To: <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span>
+  </button>
+  <datepicker [(ngModel)]="dt" [showWeeks]="true" 
+    (selectionDone)="changeDate($event)"
+    *dropdownMenu class="dropdown-menu" role="menu">
+  </datepicker>
+</div> -->
+<div>
+<visualize-box *ngFor="let week of weeks"></visualize-box>
+</div>

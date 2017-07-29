@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';  // for debugging
+// import 'rxjs/add/operator/do';  // for debugging
 
 @Injectable()
 export class WeeksService {
@@ -12,12 +12,18 @@ export class WeeksService {
   get(week_string: string): Observable<object> {
     return this.http.get(this.endpoint + week_string)
       .map((res: Response) => res.json())
-      .do(data => console.log('server data:', data))  // debug
+      // .do(data => console.log('server data:', data))  // debug
       .catch(this.handleError);
   }
 
   create(week_string: string): Observable<object> {
     return this.http.post(this.endpoint + week_string, '')
+      .map((res: Response) => res.json())
+      .catch(this.handleError);
+  }
+
+  visualize(start_week: string, end_week: string): Observable<object> {
+    return this.http.get(this.endpoint + `range?start_week=${start_week}&end_week=${end_week}`)
       .map((res: Response) => res.json())
       .catch(this.handleError);
   }
